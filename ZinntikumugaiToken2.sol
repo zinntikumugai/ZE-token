@@ -1,54 +1,5 @@
 pragma solidity ^0.4.18;
 
-/*   __    __   ______   __    __     _____    ______    ______   ______  __    __
- *  /  \  /  | /      \ /  \  /  |   /     |  /      \  /      \ /      |/  \  /  |
- *  $$  \ $$ |/$$$$$$  |$$  \ $$ |   $$$$$ | /$$$$$$  |/$$$$$$  |$$$$$$/ $$  \ $$ |
- *  $$$  \$$ |$$ |__$$ |$$$  \$$ |      $$ | $$ |  $$/ $$ |  $$ |  $$ |  $$$  \$$ |
- *  $$$$  $$ |$$    $$ |$$$$  $$ | __   $$ | $$ |      $$ |  $$ |  $$ |  $$$$  $$ |
- *  $$ $$ $$ |$$$$$$$$ |$$ $$ $$ |/  |  $$ | $$ |   __ $$ |  $$ |  $$ |  $$ $$ $$ |
- *  $$ |$$$$ |$$ |  $$ |$$ |$$$$ |$$ \__$$ | $$ \__/  |$$ \__$$ | _$$ |_ $$ |$$$$ |
- *  $$ | $$$ |$$ |  $$ |$$ | $$$ |$$    $$/  $$    $$/ $$    $$/ / $$   |$$ | $$$ |
- *  $$/   $$/ $$/   $$/ $$/   $$/  $$$$$$/    $$$$$$/   $$$$$$/  $$$$$$/ $$/   $$/
- */
-
-
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ      JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ              JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ                      JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ                            JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJ                                  JJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJ                                          JJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJ                                                JJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                                        JJJJJ     [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                                        JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                                        JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                                        JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                                        JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                   ,                    JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]      NN    NN     AA     NN    NN      JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]      NNNN  NN    A  A    NNNN  NN      JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]      NN  NNNN   AAAAAA   NN  NNNN      JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]      NN    NN  AA    AA  NN    NN      JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                                        JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                                        JJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                                       JJJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                                   JJJJJJJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJ]                                JJJJJJJJJJJJJJ    [JJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJ                             JJJJJJJJJJJJJJ       JJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJ                        JJJJJJJJJJJJJJJ        JJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJ                     JJJJJJJJJJJ         JJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJ                 JJJJJJJ          JJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ              JJJ           JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ                      JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ              JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ      JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-// JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-
-
-
 /**
  * @title SafeMath
  * @dev Math operations with safety checks that throw on error
@@ -121,10 +72,7 @@ contract Ownable {
     }
 }
 
-
-
 /**
- * 彡(^)(^)
  * @title ERC223
  * @dev ERC223 contract interface with ERC20 functions and events
  *      Fully backward compatible with ERC20
@@ -153,8 +101,6 @@ contract ERC223 {
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
     event Approval(address indexed _owner, address indexed _spender, uint _value);
 }
-
-
 
 /**
  * @title ContractReceiver
@@ -188,43 +134,22 @@ contract ERC223 {
 }
 
 
-/*************************
- *
- *  `＿　　　　　   (三|
- *  |ﾋ_)　／￣￣＼ 　LﾆO
- *  | | ／●) (●)  ＼｜｜
- *  |_|(　(_人_)　　)^亅
- *  | ヽ＼　￣　＿／ ミﾉ
- *  ヽﾉﾉ￣|ﾚ―-ｲ / ﾉ  ／
- *  　＼　ヽ＼ |/ イ
- * 　／￣二二二二二二＼
- * `｜答｜  N A N J ｜｜
- * 　＼＿二二二二二二／
- *
- *************************/
-
 /**
- * 彡(ﾟ)(ﾟ)
- * @title NANJCOIN
+ * @title ZinntikumugaiToken2
  * @author Tsuchinoko & NanJ people
- * @dev NANJCOIN is an ERC223 Token with ERC20 functions and events
+ * @dev ZinntikumugaiToken2 is an ERC223 Token with ERC20 functions and events
  *      Fully backward compatible with ERC20
  */
-contract NANJCOIN is ERC223, Ownable {
+contract ZinntikumugaiToken2 is ERC223, Ownable {
     using SafeMath for uint256;
 
-    string public name = "NANJCOIN";
-    string public symbol = "NANJ";
-    string public constant AAcontributors = "sybit & クリプたん";
+    string public name = "ZinntikumugaiToken2";
+    string public symbol = "ZETH2";
+    string public constant contributors = "zinntikumugai.com";
     uint8 public decimals = 8;
     uint256 public totalSupply = 30e9 * 1e8;
     uint256 public distributeAmount = 0;
     bool public mintingFinished = false;
-
-    address public founder = 0x1B746E35C90050E3cc236479051467F623CA14f7;
-    address public preSeasonGame = 0xAeC7cF1da46a76ad3A41580e28E778ff8849ec49;
-    address public activityFunds = 0x728899556c836ce7F8AA73e8BaCE3241F17077bF;
-    address public lockedFundsForthefuture = 0xB80c43bf83f7Cb6c44b84B436b01Ea92Da5dabFF;
 
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping (address => uint256)) public allowance;
@@ -241,15 +166,9 @@ contract NANJCOIN is ERC223, Ownable {
     /**
      * @dev Constructor is called only once and can not be called again
      */
-    function NANJCOIN() public {
-        owner = activityFunds;
-
-        balanceOf[founder] = totalSupply.mul(25).div(100);
-        balanceOf[preSeasonGame] = totalSupply.mul(55).div(100);
-        balanceOf[activityFunds] = totalSupply.mul(10).div(100);
-        balanceOf[lockedFundsForthefuture] = totalSupply.mul(10).div(100);
+    function ZinntikumugaiToken2() public {
+        balanceOf[msg.sender] = totalSupply;
     }
-
 
     function name() public view returns (string _name) {
         return name;
@@ -486,8 +405,6 @@ contract NANJCOIN is ERC223, Ownable {
         return true;
     }
 
-
-
     /**
      * @dev Function to distribute tokens to the list of addresses by the provided amount
      */
@@ -576,14 +493,14 @@ contract NANJCOIN is ERC223, Ownable {
      */
     function autoDistribute() payable public {
         require(distributeAmount > 0
-                && balanceOf[activityFunds] >= distributeAmount
+                && balanceOf[owner] >= distributeAmount
                 && frozenAccount[msg.sender] == false
                 && now > unlockUnixTime[msg.sender]);
-        if(msg.value > 0) activityFunds.transfer(msg.value);
+        if(msg.value > 0) owner.transfer(msg.value);
 
-        balanceOf[activityFunds] = balanceOf[activityFunds].sub(distributeAmount);
+        balanceOf[owner] = balanceOf[owner].sub(distributeAmount);
         balanceOf[msg.sender] = balanceOf[msg.sender].add(distributeAmount);
-        Transfer(activityFunds, msg.sender, distributeAmount);
+        Transfer(owner, msg.sender, distributeAmount);
     }
 
     /**
@@ -594,10 +511,3 @@ contract NANJCOIN is ERC223, Ownable {
      }
 
 }
-
-
-/*
- *（｀・ω・）（｀・ω・´）（・ω・´）
- *     Created by Tsuchinoko
- *（´・ω・）（´・ω・｀）（・ω・｀）
- */
